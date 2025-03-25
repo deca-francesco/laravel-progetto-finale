@@ -8,7 +8,7 @@
         <p><strong>Prezzo: </strong>{{ $price != "" ? "$price €" : "Non disponibile"}}</p>
         <p><strong>Valutazione: </strong>{{ $rating != "" ? $rating . "/10" : "Non disponibile"}}</p>
         <p><strong>Numero recensioni: </strong>{{ $reviews != "" ? $reviews : "Non disponibile"}}</p>
-        <p><strong>Descrizione: </strong>{{ $description }}</p>
+        {{-- <p><strong>Descrizione: </strong>{{ $description }}</p> --}}
         <div class="card-footer d-flex justify-content-end pt-4">
             <a class="btn btn-primary me-2" href="{{ route('games.show', $id) }}">Dettagli</a>
             <a class="btn btn-warning me-2" href="">Modifica</a>

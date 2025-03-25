@@ -24,7 +24,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        return view("games.create");
     }
 
     /**
@@ -32,7 +32,45 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // prendo i dati dalla richiesta
+        $data = $request->all();
+        // dd($data);
+
+        // creo l'istanza del nuovo gioco
+        $newGame = new Game();
+
+        // valorizzo
+        $newGame->title = $data["title"];   // data è un array letterale
+        $newGame->developer = $data["developer"];
+        $newGame->publisher = $data["publisher"];
+        $newGame->release_date = $data["release_date"];
+        $newGame->price = $data["price"];
+        $newGame->rating = $data["rating"];
+        $newGame->reviews = $data["reviews"];
+        $newGame->description = $data["description"];
+
+        // controllo se esiste l'immagine nell'array dei dati
+        // if (array_key_exists("image", $data)) {
+        //     // carichiamo l'immagine nello storage nella cartella games (se non esiste la crea), il metodo putFile la rinomina anche in modo univoco a differenza di put()
+        //     $img_url = Storage::putFile("games", $data["image"]);
+
+        //     $newGame->image = $img_url;
+        // }
+
+        // dd($data);
+
+        // salvo
+        $newGame->save();
+
+        // DOPO che ho salvato il game salvo le platforms nella tabella pivot perché ci serve l'id del game appena creato
+        // devo scrivere platforms() con le tonde perhé sto ancora costruendo la query. Senza tonde restituisce l'array platforms 
+        // controllo per inserire le platforms solo se ne è stata selezionata almeno una
+        // if ($request->has("platforms")) {
+        //     $newGame->platforms()->attach($data["platforms"]);
+        // }
+
+        // reindirizzo alla show del game appena creato
+        return redirect()->route("games.show", $newGame);
     }
 
     /**
