@@ -4,6 +4,7 @@
         <h4>{{ $title }}</h4>
         <p><strong>Sviluppatore: </strong>{{ $developer }}</p>
         <p><strong>Editore: </strong>{{ $publisher }}</p>
+        <p><strong>Genere: </strong>{{ $genre }}</p>
         <p><strong>Data rilascio: </strong>{{ $release_date }}</p>
         {{-- <p><strong>Prezzo: </strong>{{ $price != "" ? "$price €" : "Non disponibile"}}</p> --}}
         <p><strong>Prezzo: </strong>

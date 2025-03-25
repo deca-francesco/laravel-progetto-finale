@@ -53,3 +53,6 @@
 
 ### migrazione per inserire la foreign key genre_id nella tabella games
 - php artisan make:migration add_genre_id_to_games_table
+
+### esegui tutti i rollback di tutte le migrations, poi le funzioni up di tutte le migrations e poi tutti i seeder
+- php artisan migrate:refresh --seed

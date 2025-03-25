@@ -20,6 +20,7 @@
             <x-slot:title>{{ $game->title }}</x-slot:title>
             <x-slot:developer>{{ $game->developer}}</x-slot:developer>
             <x-slot:publisher>{{ $game->publisher }}</x-slot:publisher>
+            <x-slot:genre>{{ $game->genre->name }}</x-slot:genre>
             <x-slot:release_date>{{ $game->release_date }}</x-slot:release_date>
             <x-slot:price>{{ $game->price }}</x-slot:price>
             <x-slot:rating>{{ $game->rating }}</x-slot:rating>
