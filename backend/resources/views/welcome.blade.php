@@ -17,7 +17,7 @@
         </p>
         <a href="https://github.com/deca-francesco" target="_blank" class="btn btn-primary btn-lg" type="button">Il mio
             Github</a>
-        <a class="btn btn-primary btn-lg ms-3" href="">Gestisci videogiochi</a>
+        <a class="btn btn-primary btn-lg ms-3" href="{{ route('games.index') }}">Gestisci videogiochi</a>
     </div>
 </div>
 
