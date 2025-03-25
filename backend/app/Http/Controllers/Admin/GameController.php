@@ -85,24 +85,78 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Game $game)
     {
-        //
+        return view("games.edit", compact("game"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Game $game)
     {
-        //
+        // prendo i parametri nella richiesta
+        $data = $request->all();
+
+        // modifico il game già esistente
+        $game->title = $data["title"];
+        $game->developer = $data["developer"];
+        $game->publisher = $data["publisher"];
+        $game->release_date = $data["release_date"];
+        $game->price = $data["price"];
+        $game->rating = $data["rating"];
+        $game->reviews = $data["reviews"];
+        $game->description = $data["description"];
+
+        // dd($data);
+
+        // se esiste una nuova immagine la aggiorno, altrimenti no
+        // if (array_key_exists("image", $data)) {
+        //     // eliminare vecchia immagine
+        //     Storage::delete($game->image);
+
+        //     // caricare la nuova
+        //     $img_url = Storage::putFile("games", $data["image"]);
+
+        //     // aggiornare il db
+        //     $game->image = $img_url;
+        // }
+
+        // aggiorno
+        $game->update();
+
+        // // controllo se nella richiesta c'è l'array delle platforms
+        // if ($request->has("platforms")) {
+        //     // DOPO l'update synco i cambiamenti delle platforms nella tabella pivot
+        //     $game->platforms()->sync($data["platforms"]);
+        // } else {
+        //     // altrimenti elimino le platforms associate al game
+        //     $game->platforms()->detach();
+        // }
+
+        // reindirizzo al game modificato
+        return redirect()->route("games.show", $game);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Game $game)
     {
-        //
+        // // se il game ha un'immagine la elimino
+        // if ($game->image) {
+        //     Storage::delete($game->image);
+        // }
+
+        // // dice errore sulla constrained delle platforms quindi devo prima eliminare le platforms associate
+        // if ($game->platforms) {
+        //     $game->platforms()->detach();
+        // }
+
+        // elimino il game
+        $game->delete();
+
+        // reindirizzo alla index
+        return redirect()->route("games.index");
     }
 }

@@ -1,4 +1,4 @@
-@extends('./layouts/app')
+@extends('layouts/app')
 
 @section('content')
 
@@ -18,7 +18,16 @@
         <p><strong>Sviluppatore: </strong>{{ $game->developer }}</p>
         <p><strong>Editore: </strong>{{ $game->publisher }}</p>
         <p><strong>Data rilascio: </strong>{{ $game->release_date }}</p>
-        <p><strong>Prezzo: </strong>{{ $game->price != "" ? "$game->price €" : "Non disponibile"}}</p>
+        {{-- <p><strong>Prezzo: </strong>{{ $game->price != "" ? "$game->price €" : "Non disponibile"}}</p> --}}
+        <p><strong>Prezzo: </strong>
+            @if ($game->price != "" && $game->price != "0.00")
+            {{ $game->price . " €" }}
+            @elseif($game->price == "0.00")
+            gratis
+            @else
+            Non disponibile
+            @endif
+        </p>
         <p><strong>Valutazione: </strong>{{ $game->rating != "" ? $game->rating . "/10" : "Non disponibile"}}</p>
         <p><strong>Numero recensioni: </strong>{{ $game->reviews != "" ? $game->reviews : "Non disponibile"}}</p>
         <p><strong>Descrizione: </strong>{{ $game->description }}</p>

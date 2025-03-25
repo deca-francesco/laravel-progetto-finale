@@ -21,7 +21,7 @@
 ### crea il modello per interagire con la tabella nel db
 - php artisan make:model Game
 
-### crea la migration per creare la tabella nel db
+### crea la migration per creare la tabella games nel db
 - php artisan make:migration create_games_table
 
 ### esegui le migrazioni
@@ -41,3 +41,15 @@
 
 ### crea il componente per avere più ordine nel codice della index
 - php artisan make:component card_index
+
+### dopo aver scritto le funzioni CRUD crea la tabella genres
+- php artisan make:migration create_genres_table
+
+### crea modello Genre
+- php artisan make:model Genre
+
+### crea seeder tabella genres
+- php artisan make:seeder GenresTableSeeder
+
+### migrazione per inserire la foreign key genre_id nella tabella games
+- php artisan make:migration add_genre_id_to_games_table

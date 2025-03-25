@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(
             [
+                // prima devi creare i genres, altrimenti avrai errore quando riempi il genre_id in games
+                GenresTableSeeder::class,
                 GamesTableSeeder::class
             ]
         );

@@ -5,13 +5,22 @@
         <p><strong>Sviluppatore: </strong>{{ $developer }}</p>
         <p><strong>Editore: </strong>{{ $publisher }}</p>
         <p><strong>Data rilascio: </strong>{{ $release_date }}</p>
-        <p><strong>Prezzo: </strong>{{ $price != "" ? "$price €" : "Non disponibile"}}</p>
+        {{-- <p><strong>Prezzo: </strong>{{ $price != "" ? "$price €" : "Non disponibile"}}</p> --}}
+        <p><strong>Prezzo: </strong>
+            @if ($price != "" && $price != "0.00")
+            {{ $price . " €" }}
+            @elseif($price == "0.00")
+            gratis
+            @else
+            Non disponibile
+            @endif
+        </p>
         <p><strong>Valutazione: </strong>{{ $rating != "" ? $rating . "/10" : "Non disponibile"}}</p>
         <p><strong>Numero recensioni: </strong>{{ $reviews != "" ? $reviews : "Non disponibile"}}</p>
         {{-- <p><strong>Descrizione: </strong>{{ $description }}</p> --}}
         <div class="card-footer d-flex justify-content-end pt-4">
             <a class="btn btn-primary me-2" href="{{ route('games.show', $id) }}">Dettagli</a>
-            <a class="btn btn-warning me-2" href="">Modifica</a>
+            <a class="btn btn-warning me-2" href="{{ route('games.edit', $id) }}">Modifica</a>
             {{-- Button trigger modal --}}
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteGameModal_{{$id}}">Elimina</button>
         </div>

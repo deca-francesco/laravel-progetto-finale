@@ -1,4 +1,4 @@
-@extends('./layouts/app')
+@extends('layouts/app')
 
 @section('content')
 
@@ -11,20 +11,19 @@
 
 {{-- se non specifichiamo il metodo ci porta alla index con i valori degli input nell'url --}}
 {{-- index e store hanno lo stesso URI ma cambia il metodo --}}
-<form action="{{ route('games.store') }}" method="POST" enctype="multipart/form-data" class="text-light">
-    @csrf
-    {{-- csrf è il token di autenticazione di laravel che controlla che la chiamata provenga da un form di questo sito --}}
+<form action="{{ route('games.store') }}" method="POST" enctype="multipart/form-data" class="text-light"> {{-- enctype serve per poter inviare file --}}
+    @csrf {{-- csrf è il token di autenticazione di laravel che controlla che la chiamata provenga da un form di questo sito --}}
     <div class="mb-3">
         <label for="title">Titolo gioco</label>
         <input type="text" class="form-control" name="title" id="title" required>
     </div>
     <div class="mb-3">
         <label for="developer">Sviluppatore</label>
-        <input type="text" class="form-control" name="developer" id="developer">
+        <input type="text" class="form-control" name="developer" id="developer" required>
     </div>
     <div class="mb-3">
         <label for="publisher">Editore</label>
-        <input type="text" class="form-control" name="publisher" id="publisher">
+        <input type="text" class="form-control" name="publisher" id="publisher" required>
     </div>
 
     {{-- <div class="mb-3">
