@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Game;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -24,7 +25,10 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view("games.create");
+        // prendo i genres per la select del form e li passo alla view
+        $genres = Genre::all();
+
+        return view("games.create", compact("genres"));
     }
 
     /**
@@ -43,6 +47,8 @@ class GameController extends Controller
         $newGame->title = $data["title"];   // data è un array letterale
         $newGame->developer = $data["developer"];
         $newGame->publisher = $data["publisher"];
+        // aggiungo anche il genre_id
+        $newGame->genre_id = $data["genre_id"];
         $newGame->release_date = $data["release_date"];
         $newGame->price = $data["price"];
         $newGame->rating = $data["rating"];
@@ -87,7 +93,10 @@ class GameController extends Controller
      */
     public function edit(Game $game)
     {
-        return view("games.edit", compact("game"));
+        // prendo i genres per la select del form e li passo alla view
+        $genres = Genre::all();
+
+        return view("games.edit", compact("game", "genres"));
     }
 
     /**
@@ -102,6 +111,8 @@ class GameController extends Controller
         $game->title = $data["title"];
         $game->developer = $data["developer"];
         $game->publisher = $data["publisher"];
+        // aggiungo anche il genre_id
+        $game->genre_id = $data["genre_id"];
         $game->release_date = $data["release_date"];
         $game->price = $data["price"];
         $game->rating = $data["rating"];

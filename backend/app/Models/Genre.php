@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Genre extends Model
 {
-    //
+    // metto in relazione con games
+    public function games()
+    {
+        return $this->hasMany(Game::class);
+    }
 }

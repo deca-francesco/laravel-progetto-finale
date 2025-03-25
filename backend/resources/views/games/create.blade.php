@@ -26,14 +26,14 @@
         <input type="text" class="form-control" name="publisher" id="publisher" required>
     </div>
 
-    {{-- <div class="mb-3">
+    <div class="mb-3">
         <label for="genre_id">Genere</label>
         <select class="form-select" name="genre_id" id="genre_id" required>
             @foreach ($genres as $genre)
             <option value="{{ $genre->id }}">{{ $genre->name }}</option>
             @endforeach
         </select>
-    </div> --}}
+    </div>
 
     {{-- <div class="mb-3">
         <label for="">Piattaforme</label>

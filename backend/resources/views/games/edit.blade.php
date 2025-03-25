@@ -24,15 +24,15 @@
         <input type="text" class="form-control" name="publisher" id="publisher" value="{{ $game->publisher }}" required>
     </div>
 
-    {{-- <div class="mb-3">
+    <div class="mb-3">
         <label for="genre_id">Genere</label>
         <select class="form-select" name="genre_id" id="genre_id" required>
             @foreach ($genres as $genre)
-            {{-- faccio in modo di avere già selzionato il genre del game --}}
-            {{-- <option value="{{ $genre->id }}" {{ $genre->id === $game->genre_id ? "selected" : "" }}>{{ $genre->name }}</option>
+            {{-- faccio in modo di avere già selzionato il genre attuale del game --}}
+            <option value="{{ $genre->id }}" {{ $genre->id === $game->genre_id ? "selected" : "" }}>{{ $genre->name }}</option>
             @endforeach
         </select>
-    </div> --}}
+    </div>
 
     {{-- <div class="mb-3">
         <label for="">Piattaforme</label>
