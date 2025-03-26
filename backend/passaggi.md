@@ -56,3 +56,6 @@
 
 ### esegui tutti i rollback di tutte le migrations, poi le funzioni up di tutte le migrations e poi tutti i seeder
 - php artisan migrate:refresh --seed
+
+### crea il controller risorsa per i genres
+- php artisan make:controller --resource Admin/GenreController

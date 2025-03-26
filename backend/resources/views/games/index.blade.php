@@ -5,7 +5,7 @@
 <h1 class="mb-4 d-flex justify-content-between align-items-center">
     Tutti i giochi
     <span>
-        <a href="" class="btn btn-primary">Generi</a>
+        <a href="{{ route('genres.index') }}" class="btn btn-primary">Generi</a>
         <a href="" class="btn btn-primary">Piattaforme</a>
         <a href="{{ route('games.create') }}" class="btn btn-success">Nuovo gioco</a>
     </span>

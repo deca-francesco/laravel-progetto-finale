@@ -75,7 +75,7 @@
         <label for="description">Descrizione gioco</label>
         <textarea class="form-control" name="description" id="description" rows="5" required></textarea>
     </div>
-    <div><button type="submit" class="btn btn-success">Salva gioco</button></div>
+    <div><button type="submit" class="btn btn-success px-5">Salva</button></div>
 </form>
 
 @endsection

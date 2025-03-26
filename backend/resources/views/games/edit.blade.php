@@ -81,7 +81,7 @@
         <label for="description">Descrizione gioco</label>
         <textarea class="form-control" name="description" id="description" rows="10" required>{{ $game->description }}</textarea>
     </div>
-    <div><button type="submit" class="btn btn-success">Aggiorna gioco</button></div>
+    <div><button type="submit" class="btn btn-success px-5">Aggiorna</button></div>
 </form>
 
 @endsection
