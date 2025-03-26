@@ -59,3 +59,15 @@
 
 ### crea il controller risorsa per i genres
 - php artisan make:controller --resource Admin/GenreController
+
+### crea la migrazione della tabella platforms
+- php artisan make:migration create_platforms_table
+
+### crea il modello Platform
+- php artisan make:model Platform
+
+### crea il seeder per la tabella platforms
+- php artisan make:seeder PlatformsTableSeeder
+
+### esegui tutti i rollback di tutte le migrations, poi le funzioni up di tutte le migrations e poi tutti i seeder
+- php artisan migrate:refresh --seed

@@ -15,9 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(
             [
-                // prima devi creare i genres, altrimenti avrai errore quando riempi il genre_id in games
+                // prima devi creare i genres, altrimenti avrai errore quando riempi il genre_id in games perché la constrained controlla che ci sia un id corrispondente in genres
                 GenresTableSeeder::class,
-                GamesTableSeeder::class
+                GamesTableSeeder::class,
+                PlatformsTableSeeder::class
             ]
         );
     }
