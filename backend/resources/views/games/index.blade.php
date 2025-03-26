@@ -6,7 +6,7 @@
     Tutti i giochi
     <span>
         <a href="{{ route('genres.index') }}" class="btn btn-primary">Generi</a>
-        <a href="" class="btn btn-primary">Piattaforme</a>
+        <a href="{{ route('platforms.index') }}" class="btn btn-primary">Piattaforme</a>
         <a href="{{ route('games.create') }}" class="btn btn-success">Nuovo gioco</a>
     </span>
 </h1>
