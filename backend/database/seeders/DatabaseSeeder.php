@@ -15,10 +15,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(
             [
-                // prima devi creare i genres, altrimenti avrai errore quando riempi il genre_id in games perché la constrained controlla che ci sia un id corrispondente in genres
+                // prima devi creare i genres (tabella indipendente), altrimenti avrai errore quando riempi il genre_id in games perché la constrained controlla che ci sia un id corrispondente in genres
                 GenresTableSeeder::class,
-                GamesTableSeeder::class,
-                PlatformsTableSeeder::class
+                GamesTableSeeder::class,    // poi la tabella dipendente
+                PlatformsTableSeeder::class, // questa è indifferente
+                GamePlatformTableSeeder::class  // questa dopo i seeder per games e platforms
             ]
         );
     }

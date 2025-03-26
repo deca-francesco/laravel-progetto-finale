@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Game;
 use App\Models\Genre;
+use App\Models\Platform;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -28,7 +29,10 @@ class GameController extends Controller
         // prendo i genres per la select del form e li passo alla view
         $genres = Genre::all();
 
-        return view("games.create", compact("genres"));
+        // prendo le platforms per le checkbox del form
+        $platforms = Platform::all();
+
+        return view("games.create", compact("genres", "platforms"));
     }
 
     /**
@@ -71,9 +75,9 @@ class GameController extends Controller
         // DOPO che ho salvato il game salvo le platforms nella tabella pivot perché ci serve l'id del game appena creato
         // devo scrivere platforms() con le tonde perhé sto ancora costruendo la query. Senza tonde restituisce l'array platforms 
         // controllo per inserire le platforms solo se ne è stata selezionata almeno una
-        // if ($request->has("platforms")) {
-        //     $newGame->platforms()->attach($data["platforms"]);
-        // }
+        if ($request->has("platforms")) {
+            $newGame->platforms()->attach($data["platforms"]);
+        }
 
         // reindirizzo alla show del game appena creato
         return redirect()->route("games.show", $newGame);
@@ -84,7 +88,8 @@ class GameController extends Controller
      */
     public function show(Game $game)    // se prendo direttamente tutto il game non devo fare query di ricerca
     {
-        // dd($game);
+        // dd($game->platforms);
+        // il genre id è già nella tabella games, e le platforms sono ora una proprietà di ogni istanza game, quindi non devo passare nulla
         return view("games.show", compact("game"));
     }
 
@@ -96,7 +101,10 @@ class GameController extends Controller
         // prendo i genres per la select del form e li passo alla view
         $genres = Genre::all();
 
-        return view("games.edit", compact("game", "genres"));
+        // prendo tutte le platforms per le checkbox del form
+        $platforms = Platform::all();
+
+        return view("games.edit", compact("game", "genres", "platforms"));
     }
 
     /**
@@ -136,14 +144,14 @@ class GameController extends Controller
         // aggiorno
         $game->update();
 
-        // // controllo se nella richiesta c'è l'array delle platforms
-        // if ($request->has("platforms")) {
-        //     // DOPO l'update synco i cambiamenti delle platforms nella tabella pivot
-        //     $game->platforms()->sync($data["platforms"]);
-        // } else {
-        //     // altrimenti elimino le platforms associate al game
-        //     $game->platforms()->detach();
-        // }
+        // controllo se nella richiesta c'è l'array delle platforms
+        if ($request->has("platforms")) {
+            // DOPO l'update synco i cambiamenti delle platforms nella tabella pivot
+            $game->platforms()->sync($data["platforms"]);
+        } else {
+            // altrimenti elimino le platforms associate al game
+            $game->platforms()->detach();
+        }
 
         // reindirizzo al game modificato
         return redirect()->route("games.show", $game);
@@ -159,10 +167,10 @@ class GameController extends Controller
         //     Storage::delete($game->image);
         // }
 
-        // // dice errore sulla constrained delle platforms quindi devo prima eliminare le platforms associate
-        // if ($game->platforms) {
-        //     $game->platforms()->detach();
-        // }
+        // dice errore sulla constrained delle platforms quindi devo prima eliminare le platforms associate
+        if ($game->platforms) {
+            $game->platforms()->detach();
+        }
 
         // elimino il game
         $game->delete();

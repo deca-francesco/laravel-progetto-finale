@@ -34,20 +34,20 @@
         </select>
     </div>
 
-    {{-- <div class="mb-3">
+    <div class="mb-3">
         <label for="">Piattaforme</label>
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
+        <div class="row row-cols-1 row-cols-sm-2 g-2">
             @foreach ($platforms as $platform)
             <div class="col">
                 {{-- se mettiamo name="platform_{{ $platform->id }}" invierà una platform per ogni checkbox selezionata.
                 Con name="platforms[]" e value="{{ $platform->id }}" inviamo un array $platforms con elementi gli id delle platforms selezionate --}}
-                {{-- faccio in modo di checkare le platforms che aveva il game --}}
-                {{-- <input type="checkbox" name="platforms[]" value="{{ $platform->id }}" id="platform_{{ $platform->id }}" {{ $game->platforms->contains($platform->id) ? "checked" : "" }}>
+                {{-- faccio in modo di checkare le attuali del game --}}
+                <input type="checkbox" name="platforms[]" value="{{ $platform->id }}" id="platform_{{ $platform->id }}" {{ $game->platforms->contains($platform->id) ? "checked" : "" }}>
                 <label for="platform_{{ $platform->id }}" class="me-2">{{ $platform->name }}</label>
             </div>
             @endforeach
         </div>
-    </div> --}}
+    </div>
 
     <div class="mb-3">
         <label for="release_date">Data rilascio</label>

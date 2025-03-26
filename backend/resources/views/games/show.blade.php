@@ -18,6 +18,17 @@
         <p><strong>Sviluppatore: </strong>{{ $game->developer }}</p>
         <p><strong>Editore: </strong>{{ $game->publisher }}</p>
         <p><strong>Genere: {{ $game->genre->name }}</strong></p>
+
+        <p><strong>Piattaforme: </strong>
+
+            @forelse ($game->platforms as $platform)
+            <span class="badge" style="background-color: {{ $platform->color }}">{{ $platform->name }}</span>
+            @empty
+            Nessuna piattaforma selezionata
+            @endforelse
+
+        </p>
+
         <p><strong>Data rilascio: </strong>{{ $game->release_date }}</p>
         {{-- <p><strong>Prezzo: </strong>{{ $game->price != "" ? "$game->price €" : "Non disponibile"}}</p> --}}
         <p><strong>Prezzo: </strong>
@@ -31,16 +42,6 @@
         </p>
         <p><strong>Valutazione: </strong>{{ $game->rating != "" ? $game->rating . "/10" : "Non disponibile"}}</p>
         <p><strong>Numero recensioni: </strong>{{ $game->reviews != "" ? $game->reviews : "Non disponibile"}}</p>
-        {{-- <p><strong>Piattaforme: </strong>
-
-            @forelse ($game->platforms as $platform)
-            <span class="badge" style="background-color: {{ $platform->color }}">{{ $platform->name }}</span>
-            @empty
-            Nessuna piattaforma selezionata
-            @endforelse
-
-        </p> --}}
-
         <p><strong>Descrizione: </strong>{{ $game->description }}</p>
 
         {{-- @if ($game->image)
