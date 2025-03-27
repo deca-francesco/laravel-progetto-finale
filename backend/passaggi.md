@@ -83,3 +83,9 @@
 
 ### crea il controller delle platforms
 - php artisan make:controller --resource Admin/PlatformController
+
+### crea il file api.php per esporre le api per il frontoffice
+- php artisan install:api
+
+### crea il controller per le Api
+- php artisan make:controller Api/GameController
