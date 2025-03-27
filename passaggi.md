@@ -3,6 +3,8 @@
 ### crea il progetto
 - composer create-project --prefer-dist laravel/laravel:^11.0 backend
 
+# Backend
+
 ### installa breeze
 - composer require laravel/breeze --dev
 
@@ -91,3 +93,16 @@
 - php artisan make:controller Api/GameController
 
 ### creo manualmente il file config/cors.php
+
+
+
+# Frontend
+
+### crea progetto con vite react e js
+- npm create vite@latest .
+
+### installa bootstrap
+- npm i bootstrap
+
+### installa react-router-dom
+- npm i react-router-dom

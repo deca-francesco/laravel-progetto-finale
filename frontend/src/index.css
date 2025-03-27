@@ -1,0 +1,15 @@
+header {
+  height: 10vh;
+}
+
+main {
+  min-height: 85vh;
+}
+
+footer {
+  height: 5vh;
+
+  p {
+    margin-bottom: 0;
+  }
+}
