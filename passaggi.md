@@ -106,3 +106,6 @@
 
 ### installa react-router-dom
 - npm i react-router-dom
+
+### starta server
+- npm run dev
