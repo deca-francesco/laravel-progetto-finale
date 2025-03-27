@@ -45,7 +45,7 @@ export default function GameDetailsPage() {
                             : "Non disponibile"}
                 </p>
                 <p><strong>Valutazione: </strong>{game.rating != "" ? game.rating + "/10" : "Non disponibile"}</p>
-                <p><strong>Numero recensioni: </strong>{game.reviews != "" ? game.reviews + " €" : "Non disponibile"}</p>
+                <p><strong>Numero recensioni: </strong>{game.reviews != "" ? game.reviews : "Non disponibile"}</p>
                 <p><strong>Descrizione: </strong>{game.description}</p>
                 {game.image ? (
                     <div>

@@ -44,11 +44,11 @@
         <p><strong>Numero recensioni: </strong>{{ $game->reviews != "" ? $game->reviews : "Non disponibile"}}</p>
         <p><strong>Descrizione: </strong>{{ $game->description }}</p>
 
-        {{-- @if ($game->image)
+        @if ($game->image)
         <p>Anteprima:</p>
         {{-- va costruito il percorso assoluto partendo da quello relativo del db --}}
-        {{-- <img src="{{ asset('storage/' . $game->image) }}" style="max-width: 100%" alt="copertina">
-        @endif --}}
+        <img src="{{ asset('storage/' . $game->image) }}" class="img-fluid" alt="copertina">
+        @endif
 
     </div>
 </div>

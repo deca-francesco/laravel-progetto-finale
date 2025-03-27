@@ -24,7 +24,7 @@ export default function GameCard({ game }) {
                                     : "Non disponibile"}
                         </p>
                         <p><strong>Valutazione: </strong>{game.rating != "" ? game.rating + "/10" : "Non disponibile"}</p>
-                        <p><strong>Numero recensioni: </strong>{game.reviews != "" ? game.reviews + " €" : "Non disponibile"}</p>
+                        <p><strong>Numero recensioni: </strong>{game.reviews != "" ? game.reviews : "Non disponibile"}</p>
                     </div>
                     <div className="card-footer pt-2">
                         <Link to={`/games/${game.id}`} className="btn btn-primary">Dettagli</Link>

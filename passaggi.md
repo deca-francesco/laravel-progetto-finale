@@ -94,6 +94,15 @@
 
 ### creo manualmente il file config/cors.php
 
+### crea il collegamento simbolico alla cartella storage/app/public su public
+- php artisan storage:link
+
+### crea la migration per le immagini
+- php artisan make:migration add_image_to_games_table
+
+### esegui tutti i rollback di tutte le migrations, poi le funzioni up di tutte le migrations e poi tutti i seeder
+- php artisan migrate:refresh --seed
+
 
 
 # Frontend

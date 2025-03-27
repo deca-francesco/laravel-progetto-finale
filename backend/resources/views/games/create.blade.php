@@ -66,10 +66,10 @@
         <input type="number" class="form-control" name="reviews" id="reviews" min="0" max="1000000">
     </div>
 
-    {{-- <div class="mb-3">
+    <div class="mb-3">
         <label for="image">Immagine gioco</label>
         <input type="file" class="form-control" name="image" id="image">
-    </div> --}}
+    </div>
 
     <div class="mb-3">
         <label for="description">Descrizione gioco</label>

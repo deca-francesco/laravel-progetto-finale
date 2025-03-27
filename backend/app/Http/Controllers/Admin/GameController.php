@@ -7,6 +7,7 @@ use App\Models\Game;
 use App\Models\Genre;
 use App\Models\Platform;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GameController extends Controller
 {
@@ -60,14 +61,13 @@ class GameController extends Controller
         $newGame->description = $data["description"];
 
         // controllo se esiste l'immagine nell'array dei dati
-        // if (array_key_exists("image", $data)) {
-        //     // carichiamo l'immagine nello storage nella cartella games (se non esiste la crea), il metodo putFile la rinomina anche in modo univoco a differenza di put()
-        //     $img_url = Storage::putFile("games", $data["image"]);
+        if (array_key_exists("image", $data)) {
+            // carichiamo l'immagine nello storage nella cartella games (se non esiste la crea), il metodo putFile la rinomina anche in modo univoco a differenza di put()
+            // importa Storage facades NON attributes
+            $img_url = Storage::putFile("games", $data["image"]);
 
-        //     $newGame->image = $img_url;
-        // }
-
-        // dd($data);
+            $newGame->image = $img_url;
+        }
 
         // salvo
         $newGame->save();
@@ -127,19 +127,17 @@ class GameController extends Controller
         $game->reviews = $data["reviews"];
         $game->description = $data["description"];
 
-        // dd($data);
-
         // se esiste una nuova immagine la aggiorno, altrimenti no
-        // if (array_key_exists("image", $data)) {
-        //     // eliminare vecchia immagine
-        //     Storage::delete($game->image);
+        if (array_key_exists("image", $data)) {
+            // eliminare vecchia immagine
+            Storage::delete($game->image);
 
-        //     // caricare la nuova
-        //     $img_url = Storage::putFile("games", $data["image"]);
+            // caricare la nuova
+            $img_url = Storage::putFile("games", $data["image"]);
 
-        //     // aggiornare il db
-        //     $game->image = $img_url;
-        // }
+            // aggiornare il db
+            $game->image = $img_url;
+        }
 
         // aggiorno
         $game->update();
@@ -162,10 +160,10 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        // // se il game ha un'immagine la elimino
-        // if ($game->image) {
-        //     Storage::delete($game->image);
-        // }
+        // se il game ha un'immagine la elimino
+        if ($game->image) {
+            Storage::delete($game->image);
+        }
 
         // dice errore sulla constrained delle platforms quindi devo prima eliminare le platforms associate
         if ($game->platforms) {

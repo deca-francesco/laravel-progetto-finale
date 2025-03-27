@@ -66,16 +66,16 @@
         <input type="number" class="form-control" name="reviews" id="reviews" min="0" max="1000000" value="{{ $game->reviews }}">
     </div>
 
-    {{-- <div class="mb-3">
+    <div class="mb-3">
         <label for="image">Immagine gioco</label>
         <input type="file" class="form-control" name="image" id="image">
 
         @if ($game->image)
         <div>Immagine corrente:</div>
         {{-- va costruito il percorso assoluto partendo da quello relativo del db --}}
-        {{-- <img src="{{ asset('storage/' . $game->image) }}" class="img-fluid w-25" alt="copertina">
+        <img src="{{ asset('storage/' . $game->image) }}" class="img-fluid w-25" alt="copertina">
         @endif
-    </div> --}}
+    </div>
 
     <div class="mb-3">
         <label for="description">Descrizione gioco</label>
