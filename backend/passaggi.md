@@ -89,3 +89,5 @@
 
 ### crea il controller per le Api
 - php artisan make:controller Api/GameController
+
+### creo manualmente il file config/cors.php
