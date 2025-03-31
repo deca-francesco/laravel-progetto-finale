@@ -129,8 +129,11 @@ class GameController extends Controller
 
         // se esiste una nuova immagine la aggiorno, altrimenti no
         if (array_key_exists("image", $data)) {
-            // eliminare vecchia immagine
-            Storage::delete($game->image);
+
+            // eliminare vecchia immagine se c'è
+            if ($game->image) {
+                Storage::delete($game->image);
+            }
 
             // caricare la nuova
             $img_url = Storage::putFile("games", $data["image"]);
