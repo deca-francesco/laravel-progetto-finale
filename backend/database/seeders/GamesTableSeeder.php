@@ -174,7 +174,7 @@ class GamesTableSeeder extends Seeder
                 "price" => "79.99",
                 "rating" => 9.0,
                 "reviews" => 8000,
-                "description" => "Ratchet & Clank: Rift Apart è un gioco d'azione e avventura esclusivo per PlayStation, dove viaggerai attraverso dimensioni alternative in un mondo futuristico e colorato. Usa armi creative e sfrutta poteri dimensionali per salvare l'universo."
+                "description" => "Ratchet & Clank: Rift Apart è un gioco d'azione e avventura, dove viaggerai attraverso dimensioni alternative in un mondo futuristico e colorato. Usa armi creative e sfrutta poteri dimensionali per salvare l'universo."
             ],
             [
                 "title" => "God of War",
