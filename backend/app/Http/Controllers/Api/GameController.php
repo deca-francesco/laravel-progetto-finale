@@ -10,8 +10,8 @@ class GameController extends Controller
 {
     public function index()
     {
-        // prendo i games dal db e gli dico anche di prendere l'intero genre associato ad ogni game (query con with e nome della relazione nel modello Game)
-        $games = Game::with("genre")->get();
+        // prendo i games dal db in ordine alfabetico e gli dico anche di prendere l'intero genre associato ad ogni game (query con with e nome della relazione nel modello Game)
+        $games = Game::with("genre")->orderBy('title', 'asc')->get();
 
         return response()->json(
             [

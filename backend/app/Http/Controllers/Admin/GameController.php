@@ -16,8 +16,10 @@ class GameController extends Controller
      */
     public function index()
     {
-        // prendo tutti i giochi e li mostro
-        $games = Game::all();
+        // prendo tutti i giochi in ordine alfabetico e li mostro
+        // $games = Game::all();
+        $games = Game::orderBy('title', 'asc')->get();
+
         // dd($games);
         return view("games.index", compact("games"));
     }

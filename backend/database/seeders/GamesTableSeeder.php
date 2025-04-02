@@ -60,7 +60,7 @@ class GamesTableSeeder extends Seeder
                 "developer" => "Bungie",
                 "publisher" => "Bungie",
                 "release_date" => "2017-09-06",
-                "genre_id" => 4, // Sparatutto
+                "genre_id" => 2, // Avventura
                 "price" => "0",
                 "rating" => 8.0,
                 "reviews" => 120000,
@@ -152,7 +152,7 @@ class GamesTableSeeder extends Seeder
                 "price" => "49.99",
                 "rating" => 7.0,
                 "reviews" => 60000,
-                "description" => "DRAGON BALL XENOVERSE 2 offre un'esperienza di gioco di ruolo d'azione ambientata nell'universo di Dragon Ball. Crea il tuo personaggio, partecipa a epiche battaglie, esplora Conton City e interagisci con personaggi iconici della serie."
+                "description" => "DRAGON BALL XENOVERSE 2 offre un'esperienza di gioco di ruolo di lotta ambientata nell'universo di Dragon Ball. Crea il tuo personaggio, partecipa a epiche battaglie, esplora Conton City e interagisci con personaggi iconici della serie."
             ],
             [
                 "title" => "Atomic Heart",
