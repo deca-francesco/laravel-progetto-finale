@@ -23,7 +23,7 @@ export default function GamesPage() {
         <>
             <div className="container">
                 <h1>Tutti i giochi</h1>
-                <div className="row row-cols-1 g-5 mt-1 mb-5">
+                <div className="row row-cols-1 row-cols-xl-2 g-5 mt-1 mb-5">
                     {games?.map(game => <GameCard key={game.id} game={game} />)}
                 </div>
             </div>
